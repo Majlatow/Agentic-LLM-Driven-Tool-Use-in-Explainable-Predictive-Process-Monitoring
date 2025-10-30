@@ -1,4 +1,4 @@
-# Agentic LLM-Driven Explainable Predictive Process Monitoring (XPPM-Agent)
+# Agentic LLM-Driven Explainable Predictive Process Monitoring
 
 This repository contains the proof-of-concept implementation of an **agentic large language model (LLM)-driven architecture** for **explainable predictive process monitoring (PPM)**.  
 The system autonomously decomposes analytical queries into executable subtasks, orchestrates process mining and XAI tools, and generates transparent, human-interpretable outputs through structured reasoning and dependency-aware orchestration.
