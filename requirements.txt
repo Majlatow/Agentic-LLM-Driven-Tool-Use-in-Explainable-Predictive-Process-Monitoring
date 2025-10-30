@@ -1,0 +1,26 @@
+# Core dependencies
+setuptools>=42.0.0
+wheel>=0.37.0
+aiman-client>=1.0.0  # Replace with actual version
+
+# Notebook and documentation dependencies
+nbformat>=5.7.0
+jupyter>=1.0.0
+ipykernel>=6.0.0  # Required for Jupyter notebooks
+
+# Testing dependencies
+pytest>=6.2.5
+pytest-cov>=3.0.0
+pytest-asyncio>=0.16.0
+nbval>=0.10.0  # For testing notebooks
+
+# Development dependencies
+black>=22.0.0  # Code formatting
+isort>=5.10.0  # Import sorting
+mypy>=1.0.0   # Type checking
+
+# New tools dependencies
+numpy>=1.21.0
+scipy>=1.7.0
+scikit-learn>=1.0.0
+geopy>=2.2.0 
