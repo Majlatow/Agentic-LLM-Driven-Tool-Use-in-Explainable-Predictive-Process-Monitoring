@@ -1,0 +1,112 @@
+Metadata-Version: 2.1
+Name: einhorn
+Version: 0.1.0
+Summary: A Python package developed iteratively
+Home-page: https://github.com/yourusername/einhorn
+Author: Your Name
+Author-email: your.email@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Einhorn
+
+A Python package developed iteratively, providing an asynchronous interface to the AIMAN API for managing AI models and conversations.
+
+## Installation
+
+For users:
+```bash
+pip install einhorn
+```
+
+For development:
+```bash
+pip install -e .
+```
+
+## Configuration
+
+The package requires configuration for the AIMAN API. To set this up:
+
+1. Copy `config.template.json` to `config.json` in the package directory
+2. Update the following values in `config.json`:
+   - `api_url`: The AIMAN API endpoint
+   - `user_name`: Your AIMAN username
+   - `password`: Your AIMAN password
+
+## Usage
+
+```python
+import asyncio
+from einhorn import AsyncModelManager
+
+async def main():
+    # Initialize the model manager
+    manager = AsyncModelManager()
+    
+    # Initialize an agent with a specific model ID
+    agent_token = await manager.init_agent(model_id=1)
+    
+    # Ask the agent a question
+    response = await manager.ask_agent(agent_token, "Hello, how are you?")
+    print(response)
+    
+    # Clean up
+    await manager.shutdown_agent(agent_token)
+
+# Run the async function
+asyncio.run(main())
+```
+
+## Development
+
+This project uses a src layout, which means all package code is in the `src/` directory. This layout helps prevent implicit imports and ensures you're always testing the installed version of your package.
+
+To set up the development environment:
+
+1. Clone the repository
+2. Install development dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Install the package in editable mode:
+   ```bash
+   pip install -e .
+   ```
+4. Run tests:
+   ```bash
+   pytest
+   ```
+
+## Project Structure
+```
+einhorn/
+â”œâ”€â”€ src/
+â”‚   â””â”€â”€ einhorn/
+â”‚       â”œâ”€â”€ __init__.py
+â”‚       â”œâ”€â”€ model_manager.py
+â”‚       â”œâ”€â”€ config.template.json
+â”‚       â””â”€â”€ config.json (not in version control)
+â”œâ”€â”€ tests/
+â”‚   â””â”€â”€ __init__.py
+â”œâ”€â”€ setup.py
+â”œâ”€â”€ requirements.txt
+â”œâ”€â”€ README.md
+â””â”€â”€ .gitignore
+```
+
+## Features
+
+- Asynchronous model management through AIMAN API
+- Multiple agent support with conversation history
+- Automatic model switching
+- Configurable API settings
+- Retry mechanism for failed requests
+- Logging support
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details. 
