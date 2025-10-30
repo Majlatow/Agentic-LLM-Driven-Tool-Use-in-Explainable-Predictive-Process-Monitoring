@@ -1,0 +1,137 @@
+ENHANCED PREDICTION DATASETS - ANALYSIS REPORT
+============================================================
+
+Generated on: 2025-07-15 23:29:30
+
+DATASET OVERVIEW:
+--------------------
+Train Dataset: 262,814 events
+Validation Dataset: 86,197 events
+Test Dataset: 83,597 events
+
+PREDICTION PERFORMANCE SUMMARY:
+-----------------------------------
+Metric                    Train        Validation   Test        
+-------------------------------------------------------------
+Coverage (90%)            94.4%       90.0%       88.9%
+MAE (minutes)             32.8        40.4        42.2
+RMSE (minutes)            63.6        1425.7        1429.8
+Mean Width (min)          202.5        152.6        149.8
+
+PREDICTION QUALITY DISTRIBUTION:
+-----------------------------------
+
+Train Dataset:
+  Excellent predictions (<10% error): 15.9%
+  Good+ predictions (<25% error): 37.1%
+  Narrow intervals (<60min): 25.8%
+  Wide intervals (>120min): 43.9%
+
+Validation Dataset:
+  Excellent predictions (<10% error): 13.2%
+  Good+ predictions (<25% error): 31.1%
+  Narrow intervals (<60min): 33.9%
+  Wide intervals (>120min): 36.6%
+
+Test Dataset:
+  Excellent predictions (<10% error): 13.1%
+  Good+ predictions (<25% error): 31.0%
+  Narrow intervals (<60min): 26.7%
+  Wide intervals (>120min): 40.3%
+
+KEY INSIGHTS:
+---------------
+• Best coverage: Train dataset
+• Lowest MAE: Train dataset
+• Narrowest intervals: Test dataset
+WARNING: Potential overfitting detected (Test MAE 1.3x Train MAE)
+
+ENHANCED FEATURES ADDED:
+-------------------------
++ Point predictions (predicted_time)
++ 90% prediction intervals (prediction_lower_90, prediction_upper_90)
++ Interval widths and centers
++ Prediction errors (absolute, percentage, squared)
++ Coverage indicators (within_prediction_interval)
++ Quality categories (prediction_quality, interval_quality)
++ Percentile rankings for predictions and errors
+
+USAGE EXAMPLES:
+---------------
+# Load enhanced dataset
+df = pd.read_csv('enhanced_test_dataset.csv')
+
+# Filter excellent predictions
+excellent = df[df['prediction_quality'] == 'Excellent (<10%)']
+
+# Find narrow intervals
+narrow = df[df['interval_quality'] == 'Narrow (30-60min)']
+
+# Coverage analysis
+coverage = df['within_prediction_interval'].mean()
+
+# Error distribution
+error_stats = df['prediction_abs_error'].describe()
+
+
+
+
+
+
+
+
+MACHINE LEARNING - ANALYSEBERICHT
+============================================================
+Erstellt am: 2025-07-15 23:29:30
+
+DATENSATZÜBERSICHT:
+-------------------
+Trainingsdatensatz: 262.814 Ereignisse
+Validierungsdatensatz: 86.197 Ereignisse
+Testdatensatz: 83.597 Ereignisse
+
+ZUSAMMENFASSUNG DER VORHERSAGELEISTUNG:
+---------------------------------------
+
+Kennzahl			Training	Validierung	Test
+-----------------------------------------------------------------------
+Abdeckung (90%)			94,4%		90,0%		88,9%
+MAE (Minuten)			32,8		40,4		42,2
+RMSE (Minuten)			63,6		1425,7		1429,8
+Intervallbreite (Minuten)	202,5		152,6		149,8
+
+
+VERTEILUNG DER VORHERSAGEQUALITÄT:
+----------------------------------
+Trainingsdatensatz:
+  Exzellente Vorhersagen (<10% Fehler): 15,9%
+  Gute+ Vorhersagen (<25% Fehler): 37,1%
+  Schmale Intervalle (<60 Min): 25,8%
+  Breite Intervalle (>120 Min): 43,9%
+
+Validierungsdatensatz:
+  Exzellente Vorhersagen (<10% Fehler): 13,2%
+  Gute+ Vorhersagen (<25% Fehler): 31,1%
+  Schmale Intervalle (<60 Min): 33,9%
+  Breite Intervalle (>120 Min): 36,6%
+
+Testdatensatz:
+  Exzellente Vorhersagen (<10% Fehler): 13,1%
+  Gute+ Vorhersagen (<25% Fehler): 31,0%
+  Schmale Intervalle (<60 Min): 26,7%
+  Breite Intervalle (>120 Min): 40,3%
+
+
+ERWEITERTE FUNKTIONEN:
+----------------------
++ Punktvorhersagen (predicted_time)
++ 90%-Vorhersageintervalle (prediction_lower_90, prediction_upper_90)
++ Intervallbreiten und -zentren
++ Vorhersagefehler (absolut, prozentual, quadriert)
++ Abdeckungsindikatoren (within_prediction_interval)
++ Qualitätskategorien (prediction_quality, interval_quality)
++ Perzentil-Rankings für Vorhersagen und Fehler
+
+
+
+
